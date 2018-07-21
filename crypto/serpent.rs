@@ -1,10 +1,8 @@
 #![no_std]
 
-extern crate core;
-extern crate mish;
+extern crate libm;
 
 mod memory;
-mod error;
 
 // Constants
 pub const DIR_ENCRYPT: i8 = 0;
