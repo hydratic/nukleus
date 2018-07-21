@@ -1,4 +1,4 @@
-// vga_buffer.rs
+// vga.rs
 // thanks to Phil Opperman for laying the groundwork for this!
 // ----------
 // TODO:
