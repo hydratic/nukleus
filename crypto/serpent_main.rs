@@ -1,8 +1,9 @@
 #![no_std]
 
+extern crate libm;
+
 mod memory;
 mod serpent;
-mod serpentsboxes;
 
 // sepentsboxes
 pub struct RND00 {
