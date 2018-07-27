@@ -7,22 +7,22 @@ use volatile::Volatile;
 mod ext4;
 mod memory;
 
-// pub const SATA_SIG_ATA: Volatile<u32> = 0x00000101;
-// pub const SATA_SIG_ATAPI: Volatile<u32> = 0xEB140101;
-// pub const SATA_SIG_SEMB: Volatile<u32> = 0xC33C0101;
-// pub const SATA_SIG_PM: Volatile<u32> = 0x96690101;
+pub const SATA_SIG_ATA: u32 = 0x00000101;
+pub const SATA_SIG_ATAPI: u32 = 0xEB140101;
+pub const SATA_SIG_SEMB: u32 = 0xC33C0101;
+pub const SATA_SIG_PM: u32 = 0x96690101;
 
-// pub const AHCI_BASE: Volatile<u32> = 0x400000;
+pub const AHCI_BASE: u32 = 0x400000;
 pub const AHCI_DEV_NULL: i8 = 0;
 pub const AHCI_DEV_SATA: i8 = 1;
 pub const AHCI_DEV_SEMB: i8 = 2;
 pub const AHCI_DEV_PM: i8 = 3;
 pub const AHCI_DEV_SATAPI: i8 = 4;
 
-// pub const HBA_PxCMD_ST: Volatile<u32> = 0x0001;
-// pub const HBA_PxCMD_FRE: Volatile<u32> = 0x0010;
-// pub const HBA_PxCMD_FR: Volatile<u32> = 0x4000;
-// pub const HBA_PxCMD_CR: Volatile<u32> = 0x8000;
+pub const HBA_PxCMD_ST: u32 = 0x0001;
+pub const HBA_PxCMD_FRE: u32 = 0x0010;
+pub const HBA_PxCMD_FR: u32 = 0x4000;
+pub const HBA_PxCMD_CR: u32 = 0x8000;
 pub const HBA_PORT_IPM_ACTIVE: i8 = 1;
 pub const HBA_PORT_DET_PRESENT: i8 = 3;
 
@@ -304,4 +304,41 @@ pub struct HBA_PRDT_ENTRY {
     dbc: u32,
     rsv1: u32,
     i: u32,
+}
+
+// TODO: Fix this awful bit of code
+pub fn port_rebase<clb, clbu, fb, fbu, is, ie, cmd, rsv0, tfd, sig, ssts, sctl, serr, sact, ci, sntf, fbs, rsv1, vendor>(port: &HBA_PORT<lb, clbu, fb, fbu, is, ie, cmd, rsv0, tfd, sig, ssts, sctl, serr, sact, ci, sntf, fbs, rsv1, vendor>, portno: i16)
+    where clb: 0x00,
+        clbu: 0x04,
+        fb: 0x08,
+        fbu: 0x0C,
+        is: 0x10,
+        ie: 0x14,
+        cmd: 0x18,
+        rsv0: 0x1C,
+        tfd: 0x20,
+        sig: 0x24,
+        ssts: 0x28,
+        sctl: 0x2C,
+        serr: 0x30,
+        sact: 0x34,
+        ci: 0x38,
+        sntf: 0x3C,
+        fbs: 0x40,
+        rsv1: 0, // 0x44 ~ 0x6F, Reserved
+        vendor: 0 // 0x70 ~ 0x7F, vendor specific
+{
+    // TODO: first we have to update rsv1
+    // TODO: now we have to update vendor
+    
+    stop_cmd(port);
+
+    // Command list offset: 1K*portno
+    // Command list entry size = 32
+    // Command list entry maxim count = 32
+    // Command list maxim size = 32*32 = 1K per port
+    
+    // TODO: Rest of this
+
+    start_cmd(port);
 }
