@@ -1,5 +1,4 @@
 // vga.rs
-// this handles all desktop monitor displays
 // --------------------------
 // TODO:
 // Allow syntax highlighting
