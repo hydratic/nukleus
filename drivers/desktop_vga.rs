@@ -1,9 +1,10 @@
 // vga.rs
-// thanks to Phil Opperman for laying the groundwork for this!
-// ----------
+// this handles all desktop monitor displays
+// --------------------------
 // TODO:
 // Allow syntax highlighting
 // Character deletion
+// Putting pixels on screen
 
 use core::fmt;
 use core::ptr::Unique;
