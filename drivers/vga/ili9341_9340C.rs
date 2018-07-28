@@ -1,4 +1,4 @@
-// a ili9341 screen VGA driver
+// a ili9341/9340C screen VGA driver
 // a fork of Yuri Iozzelli's driver
 // --------------------------------
 #![no_std]
