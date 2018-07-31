@@ -28,9 +28,30 @@ struct ELFHeader {
     e_shstrndx: u16,
 }
 
-struct ProgramHeader [
+struct ProgramHeader {
     p_type: u32,
+    p_flags64: u32,
+    p_vaddr: u32,
+    p_paddr: u32,
+    p_filesz: u32,
+    p_memsz: u32,
+    p_flags32: u32,
+    p_align: u32,
 }
+
+struct SectionHeader {
+    sh_name: u32,
+    sh_type: u32,
+    sh_flags: u32,
+    sh_addr: u32,
+    sh_offset: u32,
+    sh_size: u32,
+    sh_link: u32,
+    sh_info: u32,
+    sh_addralign: u32,
+    sh_entsize: u32,
+}
+
 
 unsafe fn jmp(addr: u32) {
     asm!("jmp *($0)"
