@@ -6,9 +6,7 @@ mod vga;
 mod fs;
 mod memory;
 
-struct ELFIdent {
-    
-}
+const ELFIdent: i16 = 16;
 
 #[packed]
 struct ELFHeader {
