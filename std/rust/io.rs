@@ -5,28 +5,28 @@ extern crate cpuio;
 macro_rules! get_io {
 	($in:expr) => {{
 		let scancode = KEYBOARD.lock().read();
-		let caps = 
+		let mut caps = in.split(".");
 		
 		if caps == 0 {
-            match scancode { // letters
-                "1C" => letter = "a" // make code
-                "F01C" => letter = "BREAK" // break code
-                "32" => letter = "b" // repeat
-                "F032" => letter = "BREAK"
-                "21" => letter = "c"
-                "F021" => letter = "BREAK"
-                "23" => letter = "d"
-                "F023" => letter = "BREAK"
-                "24" => letter = "e"
-                "F024" => letter = "BREAK"
-                "2B" => letter = "f"
-                "F02B" => letter = "BREAK"
-                "34" => letter = "g"
-                "F034" => letter = "BREAK"
-                "33" => letter = "h"
-                "F034" => letter = "BREAK"
-                "43" => letter = "i"
-                "F043" => letter = "BREAK"
+            match scancode {
+                "1C" => letter = "a",
+                "F01C" => letter = "BREAK",
+                "32" => letter = "b",
+                "F032" => letter = "BREAK",
+                "21" => letter = "c",
+                "F021" => letter = "BREAK",
+                "23" => letter = "d",
+                "F023" => letter = "BREAK",
+                "24" => letter = "e",
+                "F024" => letter = "BREAK",
+                "2B" => letter = "f",
+                "F02B" => letter = "BREAK",
+                "34" => letter = "g",
+                "F034" => letter = "BREAK",
+                "33" => letter = "h",
+                "F034" => letter = "BREAK",
+                "43" => letter = "i",
+                "F043" => letter = "BREAK",
                 "3B" => letter = "j"
                 "F03B" => letter = "BREAK"
                 "42" => letter = "k";
