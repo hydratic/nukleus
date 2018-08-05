@@ -1,1 +1,5 @@
-
+[dependencies]
+libm = "0.1.2"
+spin = "0.4.8"
+volatile = "0.2.4"
+x86_64 = "0.2.11"
