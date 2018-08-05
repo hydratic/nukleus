@@ -4,7 +4,5 @@
 // TODO:
 // XOR
 // OR
-// NOT
-// AND
 
 #![no_std]
