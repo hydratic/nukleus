@@ -47,6 +47,10 @@ fn drawchar_8BPP(c: u8, x: i16, y: i16, fgcolor: i16, bgcolor: i16) {
     let mut bgcolor32: u32;
     
     src = font + c * 16;
+    dest = videoBuffer + y * bytes_per_line + x;
+    for row 0..16 {
+        // TODO
+    }
 }
 
 fn drawchar_transparent_8B)P(c: u8, x: i16, y: i16, fgcolor: i16, bgcolor: i16) {
@@ -58,6 +62,10 @@ fn drawchar_transparent_8B)P(c: u8, x: i16, y: i16, fgcolor: i16, bgcolor: i16) 
     let mut bgcolor32: u32;
     
     src = font + c * 16;
+    dest = videoBuffer + y * bytes_per_line + x;
+    for row 0..16 {
+        // TODO
+    }
 }
 
 macro_rules! print {
