@@ -3,6 +3,8 @@
 
 nukleus currently depends on:
 
-  std::slice;
-  std::mem::size_of;
-  std::intrinsics::type_name;
+  `std::slice;`
+  
+  `std::mem::size_of;`
+  
+  `std::intrinsics::type_name;`
