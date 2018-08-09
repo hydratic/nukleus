@@ -5,12 +5,12 @@ def main():
 	config.readline()
 	line = line + 1
 	
-	if config = "gui = 1\n":
-		# edit makefile to include GUI
+	if config = "gui = 1":
+		# git clone gui branch
 		
 	if config = "altgui":
 		# create a shell script to clone the given link
-		# edit makefile to include GUI
+		# replace makefile with GUI makefile
 
 line = 1;
 main()
