@@ -6,9 +6,12 @@
 
 extern crate libm;
 
-// mod grid;
 mod memory;
-// mod vesa;
+
+pub struct Grid {
+    width: i32,
+    height: i32,
+}
 
 pub enum Color {
     Black      = 0,
@@ -66,6 +69,12 @@ fn drawchar_transparent_8B)P(c: u8, x: i16, y: i16, fgcolor: i16, bgcolor: i16) 
     for row 0..16 {
         // TODO
     }
+}
+
+macro_rules! grid_init {
+    () => {{
+        let grid: Grid = { width, height };
+    }};
 }
 
 macro_rules! print {
