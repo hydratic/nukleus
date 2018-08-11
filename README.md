@@ -12,6 +12,6 @@ A container can have one of three forms:
 ## goals
 
  - Uncomprimising speed - lightspeed is too slow!
- - Itsy-bitsy - we want your files to take up space on your hard drive, not the OS
+ - Itsy-bitsy - we want your files to take up space on your hard drive, not the OS. As of 8-10-18, with documentation, we are 158730.159 times smaller than Windows 10
  - Suitable for older hardware - breathe new life into your old PC
  - Avoiding feature-bloat - we let the user decide what he/she needs
