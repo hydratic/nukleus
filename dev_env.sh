@@ -19,3 +19,9 @@ git clone https://github.com/segfauIt/wasm_std
 
 # dependencies
 git clone https://github.com/bobbins-wasm/bobbins-wasm
+git clone https://github.com/juj/emsdk.git
+
+# dependency setup
+cd emsdk
+./emsdk install sdk-incoming-64bit
+./emsdk activate sdk-incoming-64bit
