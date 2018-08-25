@@ -1,4 +1,5 @@
 [dependencies]
+average = "0.1.0"
 bit_field = "0.7.0"
 rlibc = "1.0"
 volatile = "0.1.0"
