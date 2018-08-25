@@ -10,7 +10,6 @@ cd nukleus
 cd userland
 vim main.c
 
-# delete lines
 # 6 at beginning
 xdotool key d d
 xdotool key d d
@@ -18,3 +17,41 @@ xdotool key d d
 xdotool key d d
 xdotool key d d
 xdotool key d d
+xdotool key : w q ! KP_Enter
+
+vim container.rs
+
+# 12 at beginning
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key : w q ! KP_Enter
+
+cd transpile
+vim scheme_wasm.ss
+
+# 14 at beginning
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key d d
+xdotool key : w q ! KP_Enter
