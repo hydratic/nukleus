@@ -6,10 +6,12 @@
 #
 # --------------------------
 # sudo apt-get install nasm
+# sudo apt-get install mit-scheme
 # sudo apt-get install git
 # sudo apt-get install emscripten
 #
 # pacman -S nasm
+# pacman -S mit-scheme
 # pacman -S git
 # pacman -S emscripten
 
