@@ -7,7 +7,9 @@ A container can have one of three forms:
 
  - An x86 emulator running a set OS or .asm/.s file
  - A program (or multiple programs) running on a set number of threads
- - A normal desktop GUI with programs on the threads that haven't neen allocated to a task yet
+ - A normal desktop GUI with programs on the threads that haven't neen allocated to a task yet.
+ 
+The container runs at the base what is basically a WebAssembly VM. It is then given access to an allocated amount of memory (Number of containers/Total RAM) and a designated thread/threads. This WebAssembly 'VM' then runs .wast files that are transpiled using the built-in toolchain that consists of transpilers that can be found in TRANSPILERS.md.
 
 ## goals
 
