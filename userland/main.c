@@ -5,11 +5,10 @@
  * and the stdlibs.
  */
 
-/* Table of Contents
- *  
- */
-
 #include "fs.h"
 #include "mem.h"
 #include "std.h"
 #include "task.h"
+
+/* container.rs */
+int32_t new_container(const char * str)
