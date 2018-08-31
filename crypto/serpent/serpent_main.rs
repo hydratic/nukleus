@@ -1,5 +1,6 @@
 #![no_std]
 
+extern crate libc;
 extern crate libm;
 
 mod memory;
