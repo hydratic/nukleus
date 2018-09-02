@@ -12,6 +12,18 @@ class Testing:
             if io == "vga":
         
             if io == "ext4":
+                
+            if io == "ps/2":
+                
+            if io == "wifi":
+                
+            if io == "usb":
+                
+            if io == "ethernet":
+                
+            if io == "ahci/sata":
+                
+            if io == "floppy":
         
             if io == "container":
         
