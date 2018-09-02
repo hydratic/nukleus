@@ -7,7 +7,14 @@ def main():
 	while loop == 1:
 		config.readline()
 		line = line + 1
-	
+
+		if config = "dev environment":
+			# install go
+			# install rust
+			# install nodejs
+			# install docker
+			# install git
+		
 		if config = "gui = 1":
 			# git clone gui branch
 		
