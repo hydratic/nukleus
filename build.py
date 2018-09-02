@@ -13,14 +13,32 @@ def main():
 		
 		if config = "altgui":
 			# create a shell script to clone the given link
-			# replace makefile with GUI makefile
+			# replace makefile/script with GUI makefile/script
 
-		if config = "container only":
-			# git clone nukleus
-			# git clone bobbins-wasm
-			# git clone wasm_std
-			# remove all files but container.rs
-		
-		line = 1;
-		
+		if config = "no wifi":
+			# remove wifi driver from source
+			
+		if config = "no serpent":
+			# remove serpent from source
+			
+		if config = "no ps/2":
+			# remove ps/2 driver from source
+			
+		if config = "no vga":
+			# remove vga driver from source
+			
+		if config = "no ext4":
+			# remove ext4 driver from source
+			
+		if config = "no sata":
+			# remove sata driver (ahci) from source
+			
+		if config = "no ata":
+			# remove ata driver from source
+			
+		if config = "no docker":
+			# remove docker from source
+			
+		if config = "no floppy":
+			# remove floppy drive support from source
 main()
