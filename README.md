@@ -6,9 +6,10 @@ nukleus is a small, container based OS writeen in Rust. Nukleus is also modal: S
 nukleus only comes with
 
  - Docker
- - Kubernetes (optional)
+ - Kubernetes
  - Drivers
  - A basic VGA implementation
+ - A (very) small text editor, so you can manage your Dockerfiles and other things
  - (WIP) pak, our package manager
 
 ## goals
