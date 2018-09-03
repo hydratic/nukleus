@@ -45,5 +45,7 @@ pub fn shell_init(out: u8) {
 		if IO_DEVICE == "USB" {
 			panic!("Input type not supported. Please try again with a PS/2 keyboard.");	
 		}
+	} else if STD == 1 {
+		// get IO normally	
 	}
 }
