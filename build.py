@@ -28,6 +28,9 @@ def main():
 		if config = "no serpent":
 			# remove serpent from source
 			
+		if config = "no kubernetes":
+			# remove kubernetes from source
+			
 		if config = "no ps/2":
 			# remove ps/2 driver from source
 			
