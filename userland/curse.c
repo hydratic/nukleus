@@ -1,37 +1,77 @@
 #include <conio.h>
+#include <fstream>
+#include <ncurses.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define clear() printf("\033[H\033[J")
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
 
 int main() {
+	signal(SIGWINCH, SIG_IGN);
+
+  	// Reinitialize the window to update data structures.
+  	endwin();
+  	initscr();
+  	refresh();
+  	clear();
+
+  	char tmp[128];
+  	sprintf(tmp, "%dx%d", COLS, LINES);
+
+  	// Approximate the center
+  	int max_x = COLS / 2 - strlen(tmp) / 2;
+  	int max_y = LINES / 2 - 1;
+
+  	mvaddstr(max_x, max_y, tmp);
+  	refresh();
+
+  	signal(SIGWINCH, handle_winch);
+	
+	curse(max_x, max_y);
+}
+
+int curse(int max_x, int max_y) {
+	// prerequisites
+	char*buf;
+	int size;
+	
+	// file operations
     *filename = "abc.txt";
 	FILE *ft;
-	ft = fopen(filename, "w+");
+	std::fstream file(*ft,std::ios::in|std::ios::binary);
+	size=file.tellg();
 	
-	int x = 1;
-	int y = 1;
-	int letter;
+	// buffer operations
+	buf=new char[size];
+	
+	// cursor locations
+	int current_x = 1;
+	int current_y = 1;
+	
 	int curse = 1;
+	
+	// needs to be updated and deleted
+	int letter;
 
 	while ( curse == 1 ) {
 		scancode = getch();
 		switch (scancode) {
 			case 97:
-				letter = 1;
 				printf("a"); 
 				break;
 			case 98: 
-				letter = 2; 
 				printf("b"); 
 				break;
 			case 99:  
-				letter = 3; 
+
 				printf("c"); 
 				break;
 			case 100: 
-				letter = 4; 
+
 				printf("d"); 
 				break;
 			case 101: 
@@ -277,6 +317,7 @@ int main() {
 			if x == 1 {
 				y = y - 1;
 			} else {
+				// buffer
 				x = x - 1;
 				gotoxy(x, y);
 				printf(" ");
@@ -285,6 +326,8 @@ int main() {
 			x = x + 1;
 		}
 
-		gotoxy(x, y);		
+		gotoxy(x, y);
+		
+		file<<buf;
 	}
 }
