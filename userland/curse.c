@@ -1,82 +1,63 @@
-#include <conio.h>
-#include <fstream>
-#include <ncurses.h>
+#include <sys/ioctl.h>
+
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-#define clear() printf("\033[H\033[J")
+#include "hashmap.h"
+
+#define clear_screen() printf("\033[H\033[J")
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
 
+int curse(int max_x, int max_y);
+
 int main() {
-	signal(SIGWINCH, SIG_IGN);
+  struct winsize w;
+  ioctl(0, TIOCGWINSZ, &w);
+  
+  int lines = w.ws_row;
+  int columns = w.ws_col; 
 
-  	// Reinitialize the window to update data structures.
-  	endwin();
-  	initscr();
-  	refresh();
-  	clear();
-
-  	char tmp[128];
-  	sprintf(tmp, "%dx%d", COLS, LINES);
-
-  	// Approximate the center
-  	int max_x = COLS / 2 - strlen(tmp) / 2;
-  	int max_y = LINES / 2 - 1;
-
-  	mvaddstr(max_x, max_y, tmp);
-  	refresh();
-
-  	signal(SIGWINCH, handle_winch);
-	
-	curse(max_x, max_y);
+  curse(lines, columns);
 }
 
 int curse(int max_x, int max_y) {
-	// prerequisites
-	char*buf;
-	int size;
-	
 	// file operations
-    *filename = "abc.txt";
-	FILE *ft;
-	std::fstream file(*ft,std::ios::in|std::ios::binary);
-	size=file.tellg();
-	
-	// buffer operations
-	buf=new char[size];
-	
+	FILE *file = fopen("abc.txt", "w+");
+
 	// cursor locations
 	int current_x = 1;
 	int current_y = 1;
 	
 	int curse = 1;
+
+  map_t buf = hashmap_new();
 	
 	// needs to be updated and deleted
 	int letter;
 
 	while ( curse == 1 ) {
-		scancode = getch();
+		char scancode = getchar();
 		switch (scancode) {
 			case 97:
+        letter = 1;
 				printf("a"); 
 				break;
-			case 98: 
-				printf("b"); 
+			case 98:
+        letter = 2;
+				printf("b");
 				break;
 			case 99:  
-
 				printf("c"); 
 				break;
 			case 100: 
-
 				printf("d"); 
 				break;
 			case 101: 
 				letter = 5; 
-			    printf("e"); 
+			  printf("e"); 
 				break;
 			case 102: 
 				letter = 6; 
@@ -87,33 +68,33 @@ int curse(int max_x, int max_y) {
 				printf("g"); 
 				break;
 			case 104:
-			   	letter = 8;
-			   	printf("h");
-			   	break;
+			  letter = 8;
+			  printf("h");
+			  break;
 			case 105:
-			   	letter = 9;
-			   	printf("i");
-			   	break;
+			  letter = 9;
+			 	printf("i");
+		   	break;
 			case 106:
-			   	letter = 10;
-			   	printf("j"); 
+		   	letter = 10;
+		   	printf("j"); 
 				break;
 			case 107:
-			   	letter = 11;
-			   	printf("k");
-			   	break;
+			  letter = 11;
+			 	printf("k");
+		   	break;
 			case 108:
-			   	letter = 12;
-			   	printf("l");
-			   	break;
+		   	letter = 12;
+		   	printf("l");
+			  break;
 			case 109:
-			   	letter = 13;
-			   	printf("m");
-			   	break;
+				letter = 13;
+	     	printf("m");
+		   	break;
 			case 110:
-			   	letter = 14; 
-				printf("n");
-			   	break;
+		   	letter = 14; 
+			  printf("n");
+		   	break;
 			case 111:
 			   	letter = 15;
 			   	printf("o");
@@ -148,11 +129,11 @@ int curse(int max_x, int max_y) {
 			   	break;
 			case 119: 
 				letter = 23;
-			   	printf("w");
-			   	break;
+			  printf("w");
+			  break;
 			case 120:
-			   	letter = 24;
-			   	printf("x"); 
+			  letter = 24;
+			  printf("x"); 
 				break;
 			case 121:
 			   	letter = 25;
@@ -232,70 +213,69 @@ int curse(int max_x, int max_y) {
 			   	printf("Q");
 			   	break;
 			case 82:
-			   	letter = 44;
-			   	printf("R");
-			   	break;
+			  letter = 44;
+			  printf("R");
+			  break;
 			case 83:
-			   	letter = 45;
-			   	printf("S");
-			   	break;
+			  letter = 45;
+			  printf("S");
+			  break;
 			case 84:
-			   	letter = 46;
-			   	printf("T");
-			   	break;
+			  letter = 46;
+			  printf("T");
+			  break;
 			case 85:
-			   	letter = 47;
-			   	printf("U");
-			   	break;
+			  letter = 47;
+			  printf("U");
+			  break;
 			case 86:
-			   	letter = 48;
-			   	printf("V");
-			   	break;
+		   	letter = 48;
+			 	printf("V");
+			  break;
 			case 87:
-			   	letter = 49;
-			   	printf("W");
-			   	break;
+		   	letter = 49;
+			 	printf("W");
+			  break;
 			case 88:
-			   	letter = 50;
-			   	printf("X");
-			   	break;
+		   	letter = 50;
+			 	printf("X");
+			  break;
 			case 89:
-			   	letter = 51;
-			   	printf("Y");
-			   	break;
+		   	letter = 51;
+			 	printf("Y");
+			  break;
 			case 90:
-			   	letter = 52;
-			   	printf("Z");
-			   	break;
-
+		   	letter = 52;
+			 	printf("Z");
+			  break;
 			case 48: 
 				letter = 100;
-			   	printf("0");
-			   	break;
+			  printf("0");
+			  break;
 			case 49:
-			   	letter = 101;
-			   	printf("1");
-			   	break;
+			  letter = 101;
+			  printf("1");
+			  break;
 			case 50:
-			   	letter = 102;
-			   	printf("2"); 
+			  letter = 102;
+			  printf("2"); 
 				break;
 			case 51:
-			   	letter = 103;
-			   	printf("3");
-			   	break;
+			  letter = 103;
+			  printf("3");
+			  break;
 			case 52:
 				letter = 104;
-			   	printf("4");
-			   	break;
+			  printf("4");
+			  break;
 			case 53: 
 				letter = 105;
-			   	printf("5"); 
+			  printf("5"); 
 				break;
 			case 54: 
 				letter = 106;
-			   	printf("6");
-			   	break;
+			  printf("6");
+			  break;
 			case 55:
 				letter = 107; 
 				printf("7");
@@ -306,15 +286,17 @@ int curse(int max_x, int max_y) {
 				break;
 			case 57: 
 				letter = 109;
-			   	printf("9");
-			   	break;
+			  printf("9");
+			  break;
 		}
 
-		if letter = "ENTER" {
+		if letter == 999 {
+      // Enter
 			y = y + 1;
 			x = 1;
-		} else if letter == "BACKSPACE" {
-			if x == 1 {
+		} else if letter == 1000 {
+			// Backspace
+      if x == 1 {
 				y = y - 1;
 			} else {
 				// buffer
@@ -327,7 +309,5 @@ int curse(int max_x, int max_y) {
 		}
 
 		gotoxy(x, y);
-		
-		file<<buf;
 	}
 }
