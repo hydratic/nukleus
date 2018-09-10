@@ -6,25 +6,28 @@ extern crate libc;
 extern crate smoltcp;
 extern crate ux;
 
+pub mod misc;
+pub mod docker;
+pub mod commands;
+pub mod fs;
+
 // TODO:
 // #[macro_use]
 // mod ansi;
 
 #[cfg(not(feature = "std"))]
 pub mod crates;
+
 #[macro_use]
 pub mod crypto;
+
 #[macro_use]
 pub mod drivers;
-pub mod header;
-pub mod fs;
+
 #[macro_use]
 pub mod memory;
-pub mod misc;
 
-pub mod commands;
-
-pub fn shell_init(out: u8) {
+pub shell_init(out: u8) {
 	// get to the newline
 	println!(" ");
 	
@@ -36,9 +39,18 @@ pub fn shell_init(out: u8) {
 		// determine IO source
 		if IO_DEVICE == "PS/2" {
 			loop {
-				// get IO
-				// match command
-				// call command
+				if TYPE == "UNIX" {
+					let in = get_io!();
+					
+					let cmd = match in {
+						
+					}
+					
+					// match command
+					// call command
+				} else {
+					panic!("Terminal type not supported.")	
+				}
 			}
 		}
 	
@@ -46,6 +58,6 @@ pub fn shell_init(out: u8) {
 			panic!("Input type not supported. Please try again with a PS/2 keyboard.");	
 		}
 	} else if STD == 1 {
-		// get IO normally	
+		// get IO normally
 	}
 }
