@@ -1,8 +1,0 @@
-cd docker
-make
-
-cd -
-cd userland
-cd sense
-
-shedskin docker_backend.py
