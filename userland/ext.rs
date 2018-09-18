@@ -24,14 +24,6 @@ pub mod terminal;
 
 // SECURITY
 
-pub enum NON_SUDO_TASKS {
-	bare_functions,
-	ssh,
-	docker,
-}
-
-pub mut const SUDO: i8 = 0;
-
 pub fn no_sudo() { 
   	security::disable_sudo();
   	unsafe {
