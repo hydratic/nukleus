@@ -6,10 +6,9 @@ extern crate libc;
 extern crate smoltcp;
 extern crate ux;
 
-pub mod misc;
-pub mod docker;
-pub mod commands;
-pub mod fs;
+pub const TYPE: String = "UNIX";
+pub const LANG: String = "EN";
+pub const NAME: String = "root";
 
 // TODO:
 // #[macro_use]
@@ -17,6 +16,11 @@ pub mod fs;
 
 #[cfg(not(feature = "std"))]
 pub mod crates;
+pub mod misc;
+pub mod docker;
+pub mod commands;
+pub mod fs;
+pub mod switch;
 
 #[macro_use]
 pub mod crypto;
@@ -42,12 +46,15 @@ pub shell_init(out: u8) {
 				if TYPE == "UNIX" {
 					let in = get_io!();
 					
-					let cmd = match in {
-						
-					}
+					if login == true {
+						let cmd = match in {
+							"sudo switch v86" => "v86",
+						}
 					
-					// match command
-					// call command
+						match cmd {
+							"v86" => switch::switch_v86(sudo);
+						}
+					}
 				} else {
 					panic!("Terminal type not supported.")	
 				}
