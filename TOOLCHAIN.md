@@ -2,4 +2,6 @@
 
 #### last updated: 9/8/18
 
-shedskin - Python to C++, used for sense
+cargo - used to get crates
+xargo - we need a cross compiler
+nasm - for assembly
