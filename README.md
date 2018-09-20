@@ -8,9 +8,9 @@ nukleus only comes with
  - Docker
  - Kubernetes
  - Drivers
- - A basic VGA implementation
- - A (very) small text editor, so you can manage your Dockerfiles and other things
- - (WIP) pak, our package manager
+ - A strange hybrid of Vim and Emacs (text editor)
+ - An Elisp interpreter, mainly for org-mode support
+ - pak, our package manager
 
 ## goals
 
