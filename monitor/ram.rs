@@ -6,7 +6,7 @@ extern crate average;
 mod drivers;
 mod memory;
 
-pub const LAST_ACTIVITY: String = "none";
+pub const LAST_ACTIVITY: &str = "none";
 
 pub const KUBERNETES: i32;
 pub const BACKGROUND: i32;
@@ -20,7 +20,9 @@ pub const MULTI_CONTAINER_TARGET: i32 = ONE_CONTAINER_TARGET * CONTAINERS + KUBE
 
 macro_rules! set_last_activity {
 	($last:expr) => {{
-	
+		unsafe {
+			LAST_ACTIVITY = $last;
+		}
 	}};
 }
 
