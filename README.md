@@ -8,8 +8,6 @@ nukleus only comes with
  - Docker
  - Kubernetes
  - Drivers
- - A strange hybrid of Vim and Emacs (text editor)
- - An Elisp interpreter, mainly for org-mode support
  - pak, our package manager
 
 ## goals
