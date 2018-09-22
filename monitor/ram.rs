@@ -1,6 +1,7 @@
 #![no_std}
 
 extern crate average;
+extern crate memadvise;
 
 #[macro_use]
 mod drivers;
@@ -34,4 +35,16 @@ macro_rules! update_mem {
 		let mut avg_docker = ONE_CONTAINER_TARGET;
 		let mut avg_multi_docker = MULTI_CONTAINER_TARGET;
 	}};
+}
+
+macro_rules! memadvise {
+	() => {{
+			
+	}};
+}
+
+pub fn memadvise_loop() {
+	loop {
+		
+	}
 }
