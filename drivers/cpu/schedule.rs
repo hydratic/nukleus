@@ -19,6 +19,11 @@ pub struct Task {
 	est_cpu%: i16,
 }
 
+pub struct Scheduler {
+	task: Task,
+	cpu_num: i32,
+}
+
 pub fn switch_task(prev_task: i16, new_task: i16) {
 	if est_cpu_new + CPU_USED > 100 {
 		
