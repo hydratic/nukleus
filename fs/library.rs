@@ -1,3 +1,6 @@
+// library.rs
+// basically a database of every file on a hard drive
+
 #![no_std]
 
 extern crate hashmap_core;
@@ -13,7 +16,6 @@ pub struct ENTRY {
 	sector: i64,
 	name: &str,
 	type: &str,
-	
 }
 
 pub enum SECTOR {
@@ -27,11 +29,11 @@ lazy_static! {
 		let mut m = hashmap_core::New();
 		
 		m.insert(0, 0);
-		m.insert(
 	}
 	
 	static ref 4096_SECTOR_CONTENTS: Hashmap<u64, &'static str> = {
 		let mut m = hashmap_core::New();
-	
+		
+		m.insert(0, 0);
 	}
 }
