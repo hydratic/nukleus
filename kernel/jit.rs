@@ -61,9 +61,10 @@ pub fn lisp() {
 		
 		// push to line logic string
 		// TODO: Convert vec procedures to string procedures
-		if cmd == "defun" { line.push("defun"); }
-		if cmd == "call asm" { line.push("asm"); }
-		if cmd == "(" { line.push("(");
+		if cmd == "defun" { line.push_str("defun"); }
+		if cmd == "call asm" { line.push_str("asm"); }
+		if cmd == "(" { line.push_str("(");
+		if cmd == ")
 		
 		// repeat to end of file
 	}
