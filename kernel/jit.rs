@@ -1,7 +1,5 @@
 // jit.rs
 
-#![no_std]
-
 extern crate average;
 extern crate cpuio;
 extern crate hashmap_core;
