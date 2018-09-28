@@ -64,58 +64,89 @@ pub fn lisp() {
 		pos = pos + 1;
 		
 		// stdlib
+		// TODO: document bitwise operations
 		match keyword {
 			// define functions/vars
 			"defun" => {
 				line.push_str("defun");
-				let set_defun = pos;
+				defun.push_str(pos);
+				next_warning.push(pos);
 			}
 			"asm" => {
 				line.push_str("asm");
-				let call_asm = pos;
+				asm.push_str(pos);
+				next_warning.push(pos);
 			}
 			"(" => {
-				line.push_str("(");	
+				line.push_str("(");
+				start.push(pos);
+				next_warning.push(pos)
 			}
 			")" => { 
-				line.push_str(")");	
+				line.push_str(")");
+				end.push(pos);
+				next_warning.push(pos);
 			}
 	
 			// mathematical operations
 			"-" => {
 				line.push_str("-");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
+				
 			}
 			"+" => {
 				line.push_str("+");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
 			}
 			"/" => {
 				line.push_str("/");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
 			}
 			"*" => {
 				line.push_str("*");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
 			}
 			"**" => {
 				line.push_str("**");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
 			}
 	
 			// bitwise operations
 			"&" => {
 				line.push_str("&");
-				let next_equal_targets = pos;
+				next_equal_targets.push(pos);
+				mext_warning.push(pos);
 			}
 			"|" => {
 				line.push_str("|");
-				let next_equal_targets = pos; 
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
 			}
-			"^" => "bitwise XOR",
-			"<<" => "left shift",
-			">>" => "right shift",
-			"~" => "bitwise NOT",
+			"^" => {
+				line.push_str("^");
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
+			}
+			"<<" => {
+				line.push_str("<<");
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
+			}
+			">>" => [
+				line.push_str(">>");
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
+			}
+			"~" => {
+				line.push_str("~");
+				next_equal_targets.push(pos);
+				next_warning.push(pos);
+			}
 		}
 		
 		if pos == 1 {
@@ -128,13 +159,118 @@ pub fn lisp() {
 	// TODO
 	
 	let exec_line = file.get(&first_line);
-	if next_warning == 0 {
-		if warning_type == "function" {
-		
-		}
-		
-		if warning_type == "asm" {
+	
+	loop {
+		if next_warning == 0 {
+			if warning_type == "function" {
 			
+			}
+		
+			if warning_type == "asm" {
+				unsafe {
+					pub const ASM: Vec<u64> = Vec!("BEGINNING");
+					call_assembler!(1);
+				}
+			}
+			
+			// if warning_type == "rust" {
+			// 	  unsafe {
+			//		pub const RUST: Vec<u64> = Vec!("BEGINNING");
+			//      call_rustJIT!(1);
+			//    }
+			// }
+		
+			if warning_type == "next_equal_targets" {
+				// math
+				if type == "add" {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == "subtract" {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);	
+				}
+				
+				if type == "multiply" {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == "division" {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == "power" {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				// bitwise operations
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+		
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+				
+				if type == " " {
+					if orphan == 1 {
+						
+					}
+					
+					line_result.push(res);
+				}
+			}
 		}
 	}
 }
