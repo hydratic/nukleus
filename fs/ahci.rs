@@ -342,3 +342,7 @@ pub fn port_rebase<clb, clbu, fb, fbu, is, ie, cmd, rsv0, tfd, sig, ssts, sctl, 
 
     start_cmd(port);
 }
+
+pub fn probe_port(abar: HBA_PORT) {
+    
+}
